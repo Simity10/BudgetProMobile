@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useFocusEffect } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useTheme } from '../theme/ThemeContext';
+import api from '../services/api';
 
 const CATEGORIES = [
   { key: 'Alimentation', icon: '🍽️' },
@@ -83,6 +84,12 @@ export default function BudgetPlanScreen({ user }) {
       setBudgets(tempBudgets);
       setEditing(false);
       Alert.alert('✅ Enregistré', 'Vos budgets ont été sauvegardés.');
+      // Sync cloud en arrière-plan
+      api.syncBudgets({
+        monthlyBudget: parseFloat(tempBudgets.monthly) || 0,
+        annualBudget: parseFloat(tempBudgets.annual) || 0,
+        categoryBudgets: tempBudgets.categories || {}
+      }).catch(() => {});
     } catch (e) {
       Alert.alert('Erreur', 'Impossible de sauvegarder.');
     }

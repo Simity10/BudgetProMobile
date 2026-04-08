@@ -1,4 +1,4 @@
-// src/screens/ExpenseScreen.js - Avec Date Picker
+// src/screens/ExpenseScreen.js - Avec Date Picker + Sync Cloud
 import React, { useState, useCallback } from 'react';
 import {
   View, Text, TextInput, TouchableOpacity,
@@ -10,6 +10,7 @@ import { Picker } from '@react-native-picker/picker';
 import { useFocusEffect } from '@react-navigation/native';
 import PremiumManager from '../utils/PremiumManager';
 import { useTheme } from '../theme/ThemeContext';
+import api from '../services/api';
 
 const DAYS = Array.from({ length: 31 }, (_, i) => String(i + 1).padStart(2, '0'));
 const MONTHS = ['01','02','03','04','05','06','07','08','09','10','11','12'];
@@ -83,19 +84,21 @@ export default function ExpenseScreen({ user, navigation }) {
     try {
       const stored = await AsyncStorage.getItem(`budgetpro_${user.name}`);
       const data = stored ? JSON.parse(stored) : { transactions: [] };
-      data.transactions.push({
+      const newTx = {
         id: Date.now(), type: 'expense',
         amount: parseFloat(amount),
         category,
         description: description || 'Dépense',
         date: txDate.toISOString(),
-      });
-      // Trier par date
+      };
+      data.transactions.push(newTx);
       data.transactions.sort((a, b) => new Date(a.date) - new Date(b.date));
       await AsyncStorage.setItem(`budgetpro_${user.name}`, JSON.stringify(data));
       setAmount('');
       setDescription('');
       Alert.alert('Succès ✅', 'Dépense ajoutée !');
+      // Sync cloud en arrière-plan
+      api.syncTransaction({ type: 'expense', amount: newTx.amount, category: newTx.category, description: newTx.description, date: newTx.date, localId: String(newTx.id) }).catch(() => {});
       loadExpenses();
     } catch (e) {
       Alert.alert('Erreur', "Impossible d'ajouter");
@@ -111,6 +114,8 @@ export default function ExpenseScreen({ user, navigation }) {
         data.transactions = data.transactions.filter(t => t.id !== id);
         await AsyncStorage.setItem(`budgetpro_${user.name}`, JSON.stringify(data));
         loadExpenses();
+        // Sync suppression cloud
+        api.deleteTransaction(String(id)).catch(() => {});
       }},
     ]);
   };

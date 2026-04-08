@@ -11,6 +11,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import * as FileSystem from 'expo-file-system/legacy';
 import * as Sharing from 'expo-sharing';
 import { useTheme } from '../theme/ThemeContext';
+import api from '../services/api';
 
 export default function SettingsScreen({ user, onLogout, navigation }) {
   const { theme, themeKey, changeTheme, themes } = useTheme();
@@ -108,6 +109,51 @@ export default function SettingsScreen({ user, onLogout, navigation }) {
       Alert.alert('Erreur', 'Impossible d\'exporter : ' + e.message);
     }
     setExporting(false);
+  };
+
+  const [syncing, setSyncing] = useState(false);
+
+  const backupToCloud = async () => {
+    setSyncing(true);
+    try {
+      const storedTx = await AsyncStorage.getItem(`budgetpro_${user.name}`);
+      const storedBudgets = await AsyncStorage.getItem(`budgetpro_budgets_${user.name}`);
+      const txData = storedTx ? JSON.parse(storedTx) : { transactions: [] };
+      const budgetData = storedBudgets ? JSON.parse(storedBudgets) : {};
+
+      const transactions = (txData.transactions || []).map(t => ({
+        type: t.type,
+        amount: t.amount,
+        category: t.category,
+        description: t.description,
+        date: t.date,
+        localId: String(t.id),
+      }));
+
+      const result = await api.backup({
+        transactions,
+        budgets: {
+          monthlyBudget: parseFloat(budgetData.monthly) || 0,
+          annualBudget: parseFloat(budgetData.annual) || 0,
+          categoryBudgets: budgetData.categories || {},
+        },
+        settings: {
+          theme: themeKey,
+          notificationsEnabled: notifEnabled,
+          notificationHour: notifHour,
+        },
+      });
+
+      if (result) {
+        Alert.alert('Sauvegarde cloud', 'Toutes vos donnees ont ete sauvegardees dans le cloud !');
+      } else {
+        Alert.alert('Hors-ligne', 'Impossible de contacter le serveur. Reessayez plus tard.');
+      }
+    } catch (error) {
+      Alert.alert('Erreur', error.message || 'Echec de la sauvegarde');
+    } finally {
+      setSyncing(false);
+    }
   };
 
   const deleteAllData = () => {
@@ -250,6 +296,15 @@ export default function SettingsScreen({ user, onLogout, navigation }) {
 
         {/* Actions */}
         <View style={styles.actionsSection}>
+          <TouchableOpacity
+            style={[styles.actionBtn, { backgroundColor: theme.accent + '20', borderColor: theme.accent }]}
+            onPress={backupToCloud}
+            disabled={syncing}
+          >
+            <Text style={[styles.actionBtnText, { color: theme.accent }]}>
+              {syncing ? '⏳ Sauvegarde en cours...' : '☁️ Sauvegarder dans le cloud'}
+            </Text>
+          </TouchableOpacity>
           <TouchableOpacity style={[styles.actionBtn, { backgroundColor: theme.warningColor + '20', borderColor: theme.warningColor }]} onPress={deleteAllData}>
             <Text style={[styles.actionBtnText, { color: theme.warningColor }]}>🗑️ Supprimer toutes les données</Text>
           </TouchableOpacity>
