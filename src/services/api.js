@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Changer cette URL selon ton environnement
-const API_URL = 'http://192.168.1.100:5000/api';
+const API_URL = 'http://localhost:5000/api';
 
 class ApiService {
   constructor() {
@@ -35,7 +35,10 @@ class ApiService {
     };
 
     try {
-      const response = await fetch(`${API_URL}${endpoint}`, config);
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+      const response = await fetch(`${API_URL}${endpoint}`, { ...config, signal: controller.signal });
+      clearTimeout(timeoutId);
       const data = await response.json();
 
       if (!response.ok) {
@@ -44,7 +47,7 @@ class ApiService {
 
       return data;
     } catch (error) {
-      if (error.message === 'Network request failed') {
+      if (error.name === 'AbortError' || error.message === 'Network request failed' || error.message?.includes('fetch')) {
         console.log('Mode hors-ligne: impossible de contacter le serveur');
         return null;
       }
