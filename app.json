@@ -3,9 +3,9 @@
     "name": "BudgetPro",
     "slug": "budgetpro-mobile",
     "version": "2.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -26,14 +26,15 @@
       },
       "package": "com.budgetpro.app",
       "versionCode": 1,
-      "permissions": []
+      "permissions": [],
+      "screenOrientation": "default"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "extra": {
       "eas": {
-        "projectId": "votre-project-id-ici"
+        "projectId": "901492ea-a742-4442-9890-0a9fbdf75d70"
       }
     }
   }
