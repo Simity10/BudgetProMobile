@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="violet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Saytu Xalis - Gérez vos finances intelligemment</title>
+
+  <meta name="description" content="Saytu Xalis - Application de gestion de budget et suivi des dépenses pour les utilisateurs africains. Gérez vos finances en FCFA.">
+  <meta name="theme-color" content="#667eea">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Saytu Xalis">
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/assets/icon.png">
+  <link rel="icon" type="image/png" href="/assets/icon.png">
+
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+</head>
+<body>
+
+  <!-- ========== LANDING PAGE ========== -->
+  <div id="landing-page" class="page-view">
+    <header class="landing-header">
+      <div class="landing-header-inner">
+        <div class="landing-logo">
+          <div class="logo-icon">💰</div>
+          <span class="logo-text">Saytu Xalis</span>
+        </div>
+        <nav class="landing-nav">
+          <a href="#features-section" onclick="event.preventDefault();document.getElementById('features-section').scrollIntoView({behavior:'smooth'})">Fonctionnalités</a>
+          <a href="#how-section" onclick="event.preventDefault();document.getElementById('how-section').scrollIntoView({behavior:'smooth'})">Comment ça marche</a>
+        </nav>
+        <div class="landing-actions">
+          <button class="btn btn-outline-light btn-sm" onclick="showPage('auth', 'login')">Connexion</button>
+          <button class="btn btn-light btn-sm" onclick="showPage('auth', 'register')">S'inscrire</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-bg-shapes">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">Application #1 de gestion de budget en FCFA</div>
+          <h1>Gérez vos finances <span class="text-gradient">intelligemment</span></h1>
+          <p class="hero-subtitle">Suivez vos revenus et dépenses, planifiez votre budget et recevez des conseils IA personnalisés. Conçu pour l'Afrique.</p>
+          <div class="hero-buttons">
+            <button class="btn btn-cta btn-lg" onclick="showPage('auth', 'register')">Commencer gratuitement</button>
+            <button class="btn btn-ghost btn-lg" onclick="document.getElementById('features-section').scrollIntoView({behavior:'smooth'})">Découvrir ↓</button>
+          </div>
+          <p class="hero-note">✓ Gratuit &nbsp; ✓ Sans carte bancaire &nbsp; ✓ Fonctionne hors-ligne</p>
+        </div>
+        <div class="hero-preview">
+          <div class="hero-phone">
+            <div class="phone-header">
+              <span class="phone-dot"></span><span class="phone-dot"></span><span class="phone-dot"></span>
+            </div>
+            <div class="phone-screen">
+              <div class="phone-greeting">Bonjour, Amadou 👋</div>
+              <div class="phone-balance">235 000 F</div>
+              <div class="phone-stats">
+                <div class="phone-stat phone-stat-green"><span>↑</span> 250 000 F</div>
+                <div class="phone-stat phone-stat-red"><span>↓</span> 15 000 F</div>
+              </div>
+              <div class="phone-chart">
+                <div class="chart-bar" style="height:85%"></div>
+                <div class="chart-bar" style="height:60%"></div>
+                <div class="chart-bar chart-bar-accent" style="height:95%"></div>
+                <div class="chart-bar" style="height:40%"></div>
+                <div class="chart-bar" style="height:70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="landing-stats">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Gratuit</div></div>
+        <div class="stat-item"><div class="stat-number">FCFA</div><div class="stat-label">Devise locale</div></div>
+        <div class="stat-item"><div class="stat-number">IA</div><div class="stat-label">Conseils intelligents</div></div>
+        <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Fonctionne hors-ligne</div></div>
+      </div>
+    </section>
+
+    <section id="features-section" class="landing-features">
+      <div class="section-header">
+        <span class="section-tag">Fonctionnalités</span>
+        <h2>Tout ce dont vous avez besoin</h2>
+        <p class="section-desc">Des outils puissants et simples pour prendre le contrôle total de vos finances.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrap feature-icon-green"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+          <h3>Revenus & Dépenses</h3>
+          <p>Enregistrez chaque transaction avec catégories, descriptions et dates. Filtrez et recherchez en un clic.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap feature-icon-blue"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <h3>Tableau de bord</h3>
+          <p>Visualisez votre situation financière avec des graphiques interactifs : catégories, mensuel, comparaison.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap feature-icon-purple"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Planification Budget</h3>
+          <p>Fixez des budgets mensuels, annuels et par catégorie. Suivez votre progression en temps réel.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap feature-icon-orange"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <h3>Conseiller IA</h3>
+          <p>Recevez des prédictions et conseils personnalisés basés sur vos habitudes de dépenses.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap feature-icon-cyan"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 110-14h9.5"/><polyline points="21 8 17.5 5 21 2"/></svg></div>
+          <h3>Sync Cloud</h3>
+          <p>Sauvegardez et restaurez vos données dans le cloud. Retrouvez-les sur tous vos appareils.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon-wrap feature-icon-pink"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <h3>App Installable</h3>
+          <p>Installez l'app sur votre téléphone ou ordinateur. Fonctionne même sans internet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-section" class="landing-how">
+      <div class="section-header">
+        <span class="section-tag">Simple</span>
+        <h2>Comment ça marche</h2>
+        <p class="section-desc">En 3 étapes simples, prenez le contrôle de vos finances.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-number">1</div>
+          <h3>Créez votre compte</h3>
+          <p>Inscription gratuite en 30 secondes. Aucune carte bancaire requise.</p>
+        </div>
+        <div class="how-connector"></div>
+        <div class="how-step">
+          <div class="how-number">2</div>
+          <h3>Ajoutez vos transactions</h3>
+          <p>Enregistrez vos revenus et dépenses au fur et à mesure. C'est rapide et intuitif.</p>
+        </div>
+        <div class="how-connector"></div>
+        <div class="how-step">
+          <div class="how-number">3</div>
+          <h3>Suivez et optimisez</h3>
+          <p>Consultez vos graphiques, recevez des conseils IA et atteignez vos objectifs financiers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="landing-cta">
+      <div class="cta-inner">
+        <div class="cta-bg-glow"></div>
+        <h2>Prêt à prendre le contrôle de vos finances ?</h2>
+        <p>Rejoignez les utilisateurs qui gèrent leur argent intelligemment avec Saytu Xalis.</p>
+        <button class="btn btn-cta btn-lg" onclick="showPage('auth', 'register')">Créer mon compte gratuit →</button>
+        <p class="cta-note">Inscription en 30 secondes. Gratuit pour toujours.</p>
+      </div>
+    </section>
+
+    <footer class="landing-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="landing-logo"><div class="logo-icon">💰</div><span class="logo-text" style="color:var(--text)">Saytu Xalis</span></div>
+          <p>Application de gestion de budget conçue pour la communauté africaine.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Produit</h4>
+          <a href="#features-section">Fonctionnalités</a>
+          <a href="/privacy.html">Confidentialité</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="mailto:simitydanfakha@gmail.com">Email</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Saytu Xalis v2.1 &copy; 2026 &bull; Fait avec ❤️ pour la communauté africaine</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ========== AUTH PAGE ========== -->
+  <div id="auth-page" class="page-view hidden">
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-logo">
+          <div class="logo-icon-lg">💰</div>
+          <h1>Saytu Xalis</h1>
+        </div>
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login" onclick="switchAuthTab('login')">Connexion</button>
+          <button class="auth-tab" data-tab="register" onclick="switchAuthTab('register')">Inscription</button>
+        </div>
+
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <label for="login-identifier">Email ou téléphone</label>
+            <input type="text" id="login-identifier" placeholder="Ex: nom@email.com ou 77 000 00 00" required>
+          </div>
+          <div class="form-group">
+            <label for="login-password">Mot de passe</label>
+            <div class="input-password">
+              <input type="password" id="login-password" placeholder="Votre mot de passe" required minlength="6">
+              <button type="button" class="btn-eye" onclick="togglePassword('login-password', this)">👁️</button>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="login-btn">
+            <span class="btn-text">Se connecter</span>
+            <span class="btn-loader hidden"></span>
+          </button>
+          <p class="auth-hint">Pas encore de compte ? <a href="#" onclick="switchAuthTab('register'); return false;">S'inscrire</a></p>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register-form" class="auth-form hidden" onsubmit="handleRegister(event)">
+          <div class="form-group">
+            <label for="register-name">Nom complet</label>
+            <input type="text" id="register-name" placeholder="Ex: Amadou Diallo" required>
+          </div>
+          <div class="form-group">
+            <label for="register-identifier">Email ou téléphone</label>
+            <input type="text" id="register-identifier" placeholder="Ex: nom@email.com ou 77 000 00 00" required>
+          </div>
+          <div class="form-group">
+            <label for="register-password">Mot de passe</label>
+            <div class="input-password">
+              <input type="password" id="register-password" placeholder="Minimum 6 caractères" required minlength="6">
+              <button type="button" class="btn-eye" onclick="togglePassword('register-password', this)">👁️</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="register-confirm">Confirmer le mot de passe</label>
+            <input type="password" id="register-confirm" placeholder="Retapez le mot de passe" required minlength="6">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" id="register-btn">
+            <span class="btn-text">Créer mon compte</span>
+            <span class="btn-loader hidden"></span>
+          </button>
+          <p class="auth-hint">Déjà un compte ? <a href="#" onclick="switchAuthTab('login'); return false;">Se connecter</a></p>
+        </form>
+
+        <p class="auth-offline-note">Fonctionne aussi hors-ligne en mode local</p>
+      </div>
+      <button class="btn-back-landing" onclick="showPage('landing')">← Retour à l'accueil</button>
+    </div>
+  </div>
+
+  <!-- ========== MAIN APP ========== -->
+  <div id="app" class="page-view hidden">
+
+    <!-- Top Header -->
+    <header id="app-header">
+      <div class="header-inner">
+        <div class="header-left">
+          <span class="header-logo">💰</span>
+          <span class="header-title">Saytu Xalis</span>
+        </div>
+        <div class="header-right">
+          <button class="btn-icon" id="btn-theme" onclick="cycleTheme()" title="Changer le thème">🎨</button>
+          <div class="header-user" onclick="navigate('settings')">
+            <div class="avatar-sm" id="header-avatar">A</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Pages -->
+    <main id="main-content">
+
+      <!-- Dashboard -->
+      <div id="page-dashboard" class="app-page active">
+        <div class="page-header gradient-header">
+          <div class="page-header-content">
+            <p class="greeting" id="dashboard-greeting">Bonjour</p>
+            <div class="balance-box">
+              <span class="balance-label">Solde net du mois</span>
+              <span class="balance-amount" id="dashboard-balance">0 F</span>
+            </div>
+          </div>
+        </div>
+        <div class="page-body">
+          <div class="stats-grid">
+            <div class="stat-card stat-income">
+              <span class="stat-icon">💰</span>
+              <span class="stat-label">Revenus</span>
+              <span class="stat-value" id="stat-income">0 F</span>
+            </div>
+            <div class="stat-card stat-expense">
+              <span class="stat-icon">💸</span>
+              <span class="stat-label">Dépenses</span>
+              <span class="stat-value" id="stat-expense">0 F</span>
+            </div>
+            <div class="stat-card stat-balance">
+              <span class="stat-icon">📊</span>
+              <span class="stat-label">Solde</span>
+              <span class="stat-value" id="stat-balance">0 F</span>
+            </div>
+            <div class="stat-card stat-savings">
+              <span class="stat-icon">🎯</span>
+              <span class="stat-label">Épargne</span>
+              <span class="stat-value" id="stat-savings">0%</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Répartition des dépenses</h3>
+              <div class="chart-tabs">
+                <button class="chart-tab active" onclick="switchChartTab(this, 'categories')">Catégories</button>
+                <button class="chart-tab" onclick="switchChartTab(this, 'monthly')">Mensuel</button>
+                <button class="chart-tab" onclick="switchChartTab(this, 'comparison')">Comparaison</button>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-categories"></canvas>
+              <canvas id="chart-monthly" class="hidden"></canvas>
+              <canvas id="chart-comparison" class="hidden"></canvas>
+              <p class="chart-empty hidden" id="chart-empty">Ajoutez des transactions pour voir les graphiques</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Transactions récentes</h3>
+              <button class="btn btn-sm btn-outline" onclick="navigate('expense')">Voir tout</button>
+            </div>
+            <div id="recent-transactions" class="transaction-list">
+              <p class="empty-state">Aucune transaction ce mois-ci</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Income Page -->
+      <div id="page-income" class="app-page">
+        <div class="page-header gradient-header">
+          <div class="page-header-content">
+            <h2>💰 Revenus</h2>
+            <span class="tx-counter" id="income-counter"></span>
+          </div>
+        </div>
+        <div class="page-body">
+          <div class="card">
+            <h3>Ajouter un revenu</h3>
+            <form id="income-form" onsubmit="addTransaction(event, 'income')">
+              <div class="form-row">
+                <div class="form-group flex-1">
+                  <label>Montant (FCFA)</label>
+                  <input type="number" id="income-amount" placeholder="Ex: 150000" required min="1">
+                </div>
+                <div class="form-group flex-1">
+                  <label>Date</label>
+                  <input type="date" id="income-date">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Source</label>
+                <select id="income-category">
+                  <option value="Salaire">Salaire</option>
+                  <option value="Freelance">Freelance</option>
+                  <option value="Commerce">Commerce</option>
+                  <option value="Investissement">Investissement</option>
+                  <option value="Location">Location</option>
+                  <option value="Bonus">Bonus</option>
+                  <option value="Cadeau">Cadeau</option>
+                  <option value="Transfert">Transfert</option>
+                  <option value="Autre">Autre</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Description (optionnel)</label>
+                <input type="text" id="income-description" placeholder="Ex: Salaire du mois">
+              </div>
+              <button type="submit" class="btn btn-success btn-block">Ajouter le revenu</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Historique des revenus</h3>
+              <span id="income-total" class="total-badge success">0 F</span>
+            </div>
+            <div class="search-bar">
+              <input type="text" id="income-search" placeholder="🔍 Rechercher..." oninput="filterTransactions('income')">
+            </div>
+            <div id="income-list" class="transaction-list">
+              <p class="empty-state">Aucun revenu enregistré</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expense Page -->
+      <div id="page-expense" class="app-page">
+        <div class="page-header gradient-header">
+          <div class="page-header-content">
+            <h2>💸 Dépenses</h2>
+            <span class="tx-counter" id="expense-counter"></span>
+          </div>
+        </div>
+        <div class="page-body">
+          <div class="card">
+            <h3>Ajouter une dépense</h3>
+            <form id="expense-form" onsubmit="addTransaction(event, 'expense')">
+              <div class="form-row">
+                <div class="form-group flex-1">
+                  <label>Montant (FCFA)</label>
+                  <input type="number" id="expense-amount" placeholder="Ex: 5000" required min="1">
+                </div>
+                <div class="form-group flex-1">
+                  <label>Date</label>
+                  <input type="date" id="expense-date">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Catégorie</label>
+                <select id="expense-category">
+                  <option value="Alimentation">Alimentation</option>
+                  <option value="Transport">Transport</option>
+                  <option value="Logement">Logement</option>
+                  <option value="Santé">Santé</option>
+                  <option value="Loisirs">Loisirs</option>
+                  <option value="Shopping">Shopping</option>
+                  <option value="Éducation">Éducation</option>
+                  <option value="Vêtements">Vêtements</option>
+                  <option value="Factures">Factures</option>
+                  <option value="Autre">Autre</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Description (optionnel)</label>
+                <input type="text" id="expense-description" placeholder="Ex: Courses du marché">
+              </div>
+              <button type="submit" class="btn btn-danger btn-block">Ajouter la dépense</button>
+            </form>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Historique des dépenses</h3>
+              <span id="expense-total" class="total-badge danger">0 F</span>
+            </div>
+            <div class="search-bar">
+              <input type="text" id="expense-search" placeholder="🔍 Rechercher..." oninput="filterTransactions('expense')">
+            </div>
+            <div class="filter-chips" id="expense-filters"></div>
+            <div id="expense-list" class="transaction-list">
+              <p class="empty-state">Aucune dépense enregistrée</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Budget Page -->
+      <div id="page-budget" class="app-page">
+        <div class="page-header gradient-header">
+          <div class="page-header-content">
+            <h2>🎯 Planification Budget</h2>
+          </div>
+        </div>
+        <div class="page-body">
+          <div class="card">
+            <div class="card-header">
+              <h3>Budget mensuel</h3>
+              <button class="btn btn-sm btn-outline" id="btn-edit-budget" onclick="toggleBudgetEdit()">Modifier</button>
+            </div>
+            <div id="budget-monthly-display">
+              <div class="budget-amount" id="budget-monthly-value">Non défini</div>
+              <div class="progress-container" id="budget-monthly-progress" style="display:none">
+                <div class="progress-bar"><div class="progress-fill" id="budget-monthly-fill"></div></div>
+                <div class="progress-info">
+                  <span id="budget-monthly-spent">0 F dépensé</span>
+                  <span id="budget-monthly-pct">0%</span>
+                </div>
+              </div>
+            </div>
+            <div id="budget-monthly-edit" class="hidden">
+              <div class="form-group">
+                <input type="number" id="budget-monthly-input" placeholder="Ex: 200000" min="0">
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3>Budget annuel</h3>
+            </div>
+            <div id="budget-annual-display">
+              <div class="budget-amount" id="budget-annual-value">Non défini</div>
+            </div>
+            <div id="budget-annual-edit" class="hidden">
+              <div class="form-group">
+                <input type="number" id="budget-annual-input" placeholder="Ex: 2400000" min="0">
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Budgets par catégorie</h3>
+            <div id="category-budgets"></div>
+          </div>
+
+          <div id="budget-edit-actions" class="hidden">
+            <button class="btn btn-primary btn-block" onclick="saveBudgets()">Enregistrer</button>
+            <button class="btn btn-outline btn-block" onclick="toggleBudgetEdit()">Annuler</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Predictions Page -->
+      <div id="page-predictions" class="app-page">
+        <div class="page-header gradient-header">
+          <div class="page-header-content">
+            <h2>🔮 IA Conseillère Financière</h2>
+            <p class="header-subtitle">Analyse intelligente de vos finances</p>
+          </div>
+        </div>
+        <div class="page-body">
+          <div class="card prediction-card">
+            <div class="prediction-header">
+              <span class="prediction-icon">📈</span>
+              <div>
+                <h3>Prédiction mois prochain</h3>
+                <p class="prediction-trend" id="prediction-trend">--</p>
+              </div>
+            </div>
+            <div class="prediction-amount" id="prediction-amount">-- F</div>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card"><span class="stat-label">Revenus</span><span class="stat-value" id="pred-income">0 F</span></div>
+            <div class="stat-card"><span class="stat-label">Dépenses</span><span class="stat-value" id="pred-expense">0 F</span></div>
+            <div class="stat-card"><span class="stat-label">Taux épargne</span><span class="stat-value" id="pred-savings">0%</span></div>
+            <div class="stat-card"><span class="stat-label">Jours restants</span><span class="stat-value" id="pred-days">--</span></div>
+          </div>
+
+          <div class="card">
+            <h3>💡 Budget quotidien recommandé</h3>
+            <div class="daily-budget" id="daily-budget">-- F / jour</div>
+          </div>
+
+          <div id="advice-cards"></div>
+
+          <button class="btn btn-outline btn-block" onclick="refreshPredictions()">🔄 Actualiser l'analyse</button>
+        </div>
+      </div>
+
+      <!-- Settings Page -->
+      <div id="page-settings" class="app-page">
+        <div class="page-header gradient-header">
+          <div class="page-header-content">
+            <div class="profile-header">
+              <div class="avatar-lg" id="settings-avatar">A</div>
+              <div>
+                <h2 id="settings-username">Utilisateur</h2>
+                <span class="badge" id="settings-status">Gratuit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-body">
+          <div class="card">
+            <h3>🎨 Thème de l'application</h3>
+            <div class="theme-grid" id="theme-grid"></div>
+          </div>
+
+          <div class="card">
+            <h3>📤 Exporter les données</h3>
+            <p class="text-muted">Exportez vos transactions au format CSV, compatible avec Excel et Google Sheets.</p>
+            <button class="btn btn-outline btn-block" onclick="exportCSV()">📥 Exporter en CSV</button>
+          </div>
+
+          <div class="card">
+            <h3>☁️ Sauvegarde cloud</h3>
+            <p class="text-muted">Sauvegardez toutes vos données dans le cloud pour les retrouver sur un autre appareil.</p>
+            <button class="btn btn-outline btn-block" onclick="backupToCloud()">☁️ Sauvegarder dans le cloud</button>
+            <button class="btn btn-outline btn-block" onclick="restoreFromCloud()" style="margin-top:8px">📥 Restaurer depuis le cloud</button>
+          </div>
+
+          <div class="card">
+            <h3>ℹ️ Informations du compte</h3>
+            <div class="info-list">
+              <div class="info-row"><span>Utilisateur</span><span id="info-username">--</span></div>
+              <div class="info-row"><span>Statut</span><span id="info-status">Gratuit</span></div>
+              <div class="info-row"><span>Membre depuis</span><span id="info-since">--</span></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>⚠️ Zone de danger</h3>
+            <button class="btn btn-outline btn-block" onclick="deleteAllData()">🗑️ Supprimer toutes les données</button>
+            <button class="btn btn-danger btn-block" style="margin-top:8px" onclick="logout()">🚪 Se déconnecter</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav id="bottom-nav">
+      <button class="nav-item active" data-page="dashboard" onclick="navigate('dashboard')">
+        <span class="nav-icon">📊</span>
+        <span class="nav-label">Accueil</span>
+      </button>
+      <button class="nav-item" data-page="income" onclick="navigate('income')">
+        <span class="nav-icon">💰</span>
+        <span class="nav-label">Revenus</span>
+      </button>
+      <button class="nav-item" data-page="expense" onclick="navigate('expense')">
+        <span class="nav-icon">💸</span>
+        <span class="nav-label">Dépenses</span>
+      </button>
+      <button class="nav-item" data-page="budget" onclick="navigate('budget')">
+        <span class="nav-icon">🎯</span>
+        <span class="nav-label">Budget</span>
+      </button>
+      <button class="nav-item" data-page="predictions" onclick="navigate('predictions')">
+        <span class="nav-icon">🔮</span>
+        <span class="nav-label">IA</span>
+      </button>
+      <button class="nav-item" data-page="settings" onclick="navigate('settings')">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Plus</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Confirm modal -->
+  <div id="confirm-modal" class="modal-overlay hidden">
+    <div class="modal-card">
+      <h3 id="confirm-title">Confirmer</h3>
+      <p id="confirm-message">Êtes-vous sûr ?</p>
+      <div class="modal-actions">
+        <button class="btn btn-outline" onclick="closeConfirm()">Annuler</button>
+        <button class="btn btn-danger" id="confirm-ok" onclick="closeConfirm(true)">Confirmer</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

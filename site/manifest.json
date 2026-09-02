@@ -1,0 +1,14 @@
+{
+  "name": "Saytu Xalis",
+  "short_name": "Saytu Xalis",
+  "description": "Gérez vos finances intelligemment - Suivi de budget en FCFA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#667eea",
+  "theme_color": "#667eea",
+  "lang": "fr",
+  "icons": [
+    { "src": "/assets/icon.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/icon.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

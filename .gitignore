@@ -38,3 +38,11 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# React Native crash logs
+com.facebook.react.*
+java.util.concurrent.*
+okhttp3.*
+
+# Local Netlify folder
+.netlify
