@@ -2,10 +2,16 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "budgetpro",
+      "name": "saytuxalis",
       "runtimeExecutable": "npx",
       "runtimeArgs": ["expo", "start", "--web", "--port", "8081"],
       "port": 8081
+    },
+    {
+      "name": "saytu-site",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "site", "-l", "3000", "--no-clipboard"],
+      "port": 3000
     }
   ]
 }

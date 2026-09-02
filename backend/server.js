@@ -30,7 +30,7 @@ app.use('/api/sync', require('./routes/sync'));
 
 // Route de test
 app.get('/', (req, res) => {
-  res.json({ message: 'BudgetPro API en ligne' });
+  res.json({ message: 'Saytu Xalis API en ligne' });
 });
 
 const PORT = process.env.PORT || 5000;

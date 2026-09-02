@@ -59,7 +59,7 @@ export default function AboutScreen() {
     },
     {
       q: 'Puis-je utiliser l\'app sans connexion internet ?',
-      a: 'Oui ! BudgetPro fonctionne entièrement hors ligne. Aucune connexion internet n\'est nécessaire.',
+      a: 'Oui ! Saytu Xalis fonctionne entièrement hors ligne. Aucune connexion internet n\'est nécessaire.',
     },
     {
       q: 'Comment changer le thème de l\'application ?',
@@ -75,14 +75,14 @@ export default function AboutScreen() {
         <LinearGradient colors={theme.gradientHeader} style={styles.header}>
           <Text style={styles.headerEmoji}>❓</Text>
           <Text style={styles.headerTitle}>Aide & À propos</Text>
-          <Text style={styles.headerSubtitle}>BudgetPro v2.0</Text>
+          <Text style={styles.headerSubtitle}>Saytu Xalis v2.1</Text>
         </LinearGradient>
 
         {/* Présentation */}
         <View style={[styles.card, { backgroundColor: theme.cardBg }]}>
-          <Text style={[styles.cardTitle, { color: theme.textPrimary }]}>🌟 Qu'est-ce que BudgetPro ?</Text>
+          <Text style={[styles.cardTitle, { color: theme.textPrimary }]}>🌟 Qu'est-ce que Saytu Xalis ?</Text>
           <Text style={[styles.cardText, { color: theme.textSecondary }]}>
-            BudgetPro est votre assistant financier personnel conçu pour les utilisateurs africains.
+            Saytu Xalis est votre assistant financier personnel conçu pour les utilisateurs africains.
             Gérez vos revenus et dépenses en FCFA, analysez vos habitudes et prenez le contrôle
             de votre argent facilement depuis votre téléphone.
           </Text>
@@ -137,7 +137,7 @@ export default function AboutScreen() {
 
         {/* Version */}
         <View style={styles.footer}>
-          <Text style={[styles.footerText, { color: theme.textSecondary }]}>BudgetPro v2.0</Text>
+          <Text style={[styles.footerText, { color: theme.textSecondary }]}>Saytu Xalis v2.1</Text>
           <Text style={[styles.footerText, { color: theme.textSecondary }]}>© 2024 Tous droits réservés</Text>
           <Text style={[styles.footerSub, { color: theme.textSecondary }]}>
             Fait avec ❤️ pour la communauté africaine

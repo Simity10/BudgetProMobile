@@ -17,8 +17,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useTheme } from '../theme/ThemeContext';
 import api from '../services/api';
 
-// Composant Logo BudgetPro
-function BudgetProLogo({ size = 100 }) {
+// Composant Logo Saytu Xalis
+function AppLogo({ size = 100 }) {
   return (
     <View style={[styles.logoBox, { width: size, height: size, borderRadius: size * 0.22 }]}>
       <LinearGradient
@@ -120,8 +120,8 @@ export default function LoginScreen({ onLogin }) {
           >
             {/* Logo */}
             <View style={styles.logoContainer}>
-              <BudgetProLogo size={90} />
-              <Text style={styles.logoText}>BudgetPro</Text>
+              <AppLogo size={90} />
+              <Text style={styles.logoText}>Saytu Xalis</Text>
             </View>
 
             <Text style={styles.title}>
@@ -230,7 +230,7 @@ export default function LoginScreen({ onLogin }) {
             <Text style={styles.footer}>
               Vos données sont sauvegardées{'\n'}dans le cloud en toute sécurité
             </Text>
-            <Text style={styles.version}>BudgetPro v2.1</Text>
+            <Text style={styles.version}>Saytu Xalis v2.1</Text>
           </ScrollView>
         </KeyboardAvoidingView>
       </SafeAreaView>

@@ -82,7 +82,7 @@ export default function SettingsScreen({ user, onLogout, navigation }) {
       }).join('\n');
 
       const csvContent = BOM + header + rows;
-      const fileName = `BudgetPro_${user.name}_${new Date().toISOString().slice(0, 10)}.csv`;
+      const fileName = `SaytuXalis_${user.name}_${new Date().toISOString().slice(0, 10)}.csv`;
 
       // Écrire dans le cache puis partager
       const cachePath = FileSystem.cacheDirectory + fileName;
