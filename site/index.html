@@ -29,6 +29,10 @@
           <div class="logo-icon">💰</div>
           <span class="logo-text">Saytu Xalis</span>
         </div>
+        <nav class="landing-nav">
+          <a href="#features-section" onclick="event.preventDefault();document.getElementById('features-section').scrollIntoView({behavior:'smooth'})">Fonctionnalités</a>
+          <a href="#how-section" onclick="event.preventDefault();document.getElementById('how-section').scrollIntoView({behavior:'smooth'})">Comment ça marche</a>
+        </nav>
         <div class="landing-actions">
           <button class="btn btn-outline-light btn-sm" onclick="showPage('auth', 'login')">Connexion</button>
           <button class="btn btn-light btn-sm" onclick="showPage('auth', 'register')">S'inscrire</button>
@@ -37,62 +41,152 @@
     </header>
 
     <section class="hero">
-      <div class="hero-content">
-        <h1>Gérez vos finances <span class="text-gradient">intelligemment</span></h1>
-        <p class="hero-subtitle">Suivez vos revenus et dépenses, planifiez votre budget et recevez des conseils personnalisés. Conçu pour l'Afrique, en FCFA.</p>
-        <div class="hero-buttons">
-          <button class="btn btn-primary btn-lg" onclick="showPage('auth', 'register')">Commencer gratuitement</button>
-          <button class="btn btn-outline btn-lg" onclick="document.getElementById('features-section').scrollIntoView({behavior:'smooth'})">Découvrir</button>
+      <div class="hero-bg-shapes">
+        <div class="hero-shape hero-shape-1"></div>
+        <div class="hero-shape hero-shape-2"></div>
+        <div class="hero-shape hero-shape-3"></div>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge">Application #1 de gestion de budget en FCFA</div>
+          <h1>Gérez vos finances <span class="text-gradient">intelligemment</span></h1>
+          <p class="hero-subtitle">Suivez vos revenus et dépenses, planifiez votre budget et recevez des conseils IA personnalisés. Conçu pour l'Afrique.</p>
+          <div class="hero-buttons">
+            <button class="btn btn-cta btn-lg" onclick="showPage('auth', 'register')">Commencer gratuitement</button>
+            <button class="btn btn-ghost btn-lg" onclick="document.getElementById('features-section').scrollIntoView({behavior:'smooth'})">Découvrir ↓</button>
+          </div>
+          <p class="hero-note">✓ Gratuit &nbsp; ✓ Sans carte bancaire &nbsp; ✓ Fonctionne hors-ligne</p>
         </div>
-        <p class="hero-note">Gratuit &bull; Pas de carte bancaire requise</p>
+        <div class="hero-preview">
+          <div class="hero-phone">
+            <div class="phone-header">
+              <span class="phone-dot"></span><span class="phone-dot"></span><span class="phone-dot"></span>
+            </div>
+            <div class="phone-screen">
+              <div class="phone-greeting">Bonjour, Amadou 👋</div>
+              <div class="phone-balance">235 000 F</div>
+              <div class="phone-stats">
+                <div class="phone-stat phone-stat-green"><span>↑</span> 250 000 F</div>
+                <div class="phone-stat phone-stat-red"><span>↓</span> 15 000 F</div>
+              </div>
+              <div class="phone-chart">
+                <div class="chart-bar" style="height:85%"></div>
+                <div class="chart-bar" style="height:60%"></div>
+                <div class="chart-bar chart-bar-accent" style="height:95%"></div>
+                <div class="chart-bar" style="height:40%"></div>
+                <div class="chart-bar" style="height:70%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="landing-stats">
+      <div class="stats-grid">
+        <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Gratuit</div></div>
+        <div class="stat-item"><div class="stat-number">FCFA</div><div class="stat-label">Devise locale</div></div>
+        <div class="stat-item"><div class="stat-number">IA</div><div class="stat-label">Conseils intelligents</div></div>
+        <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">Fonctionne hors-ligne</div></div>
       </div>
     </section>
 
     <section id="features-section" class="landing-features">
-      <h2>Tout ce dont vous avez besoin</h2>
+      <div class="section-header">
+        <span class="section-tag">Fonctionnalités</span>
+        <h2>Tout ce dont vous avez besoin</h2>
+        <p class="section-desc">Des outils puissants et simples pour prendre le contrôle total de vos finances.</p>
+      </div>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">💰</div>
+          <div class="feature-icon-wrap feature-icon-green"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
           <h3>Revenus & Dépenses</h3>
-          <p>Enregistrez chaque revenu et dépense avec catégories, descriptions et dates.</p>
+          <p>Enregistrez chaque transaction avec catégories, descriptions et dates. Filtrez et recherchez en un clic.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📊</div>
+          <div class="feature-icon-wrap feature-icon-blue"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
           <h3>Tableau de bord</h3>
-          <p>Visualisez votre situation financière avec des graphiques clairs et détaillés.</p>
+          <p>Visualisez votre situation financière avec des graphiques interactifs : catégories, mensuel, comparaison.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🎯</div>
-          <h3>Planification budget</h3>
-          <p>Fixez des budgets mensuels, annuels et par catégorie. Suivez votre progression.</p>
+          <div class="feature-icon-wrap feature-icon-purple"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+          <h3>Planification Budget</h3>
+          <p>Fixez des budgets mensuels, annuels et par catégorie. Suivez votre progression en temps réel.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🔮</div>
-          <h3>Prédictions IA</h3>
-          <p>Recevez des prédictions et conseils personnalisés basés sur vos habitudes.</p>
+          <div class="feature-icon-wrap feature-icon-orange"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <h3>Conseiller IA</h3>
+          <p>Recevez des prédictions et conseils personnalisés basés sur vos habitudes de dépenses.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">☁️</div>
+          <div class="feature-icon-wrap feature-icon-cyan"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 110-14h9.5"/><polyline points="21 8 17.5 5 21 2"/></svg></div>
           <h3>Sync Cloud</h3>
-          <p>Vos données sauvegardées dans le cloud. Retrouvez-les sur tous vos appareils.</p>
+          <p>Sauvegardez et restaurez vos données dans le cloud. Retrouvez-les sur tous vos appareils.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>Installable</h3>
-          <p>Installez l'app sur votre téléphone ou ordinateur, fonctionne même hors-ligne.</p>
+          <div class="feature-icon-wrap feature-icon-pink"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <h3>App Installable</h3>
+          <p>Installez l'app sur votre téléphone ou ordinateur. Fonctionne même sans internet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-section" class="landing-how">
+      <div class="section-header">
+        <span class="section-tag">Simple</span>
+        <h2>Comment ça marche</h2>
+        <p class="section-desc">En 3 étapes simples, prenez le contrôle de vos finances.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-number">1</div>
+          <h3>Créez votre compte</h3>
+          <p>Inscription gratuite en 30 secondes. Aucune carte bancaire requise.</p>
+        </div>
+        <div class="how-connector"></div>
+        <div class="how-step">
+          <div class="how-number">2</div>
+          <h3>Ajoutez vos transactions</h3>
+          <p>Enregistrez vos revenus et dépenses au fur et à mesure. C'est rapide et intuitif.</p>
+        </div>
+        <div class="how-connector"></div>
+        <div class="how-step">
+          <div class="how-number">3</div>
+          <h3>Suivez et optimisez</h3>
+          <p>Consultez vos graphiques, recevez des conseils IA et atteignez vos objectifs financiers.</p>
         </div>
       </div>
     </section>
 
     <section class="landing-cta">
-      <h2>Prêt à prendre le contrôle de vos finances ?</h2>
-      <p>Rejoignez les utilisateurs qui gèrent leur argent intelligemment avec Saytu Xalis.</p>
-      <button class="btn btn-primary btn-lg" onclick="showPage('auth', 'register')">Créer mon compte gratuit</button>
+      <div class="cta-inner">
+        <div class="cta-bg-glow"></div>
+        <h2>Prêt à prendre le contrôle de vos finances ?</h2>
+        <p>Rejoignez les utilisateurs qui gèrent leur argent intelligemment avec Saytu Xalis.</p>
+        <button class="btn btn-cta btn-lg" onclick="showPage('auth', 'register')">Créer mon compte gratuit →</button>
+        <p class="cta-note">Inscription en 30 secondes. Gratuit pour toujours.</p>
+      </div>
     </section>
 
     <footer class="landing-footer">
-      <p>Saytu Xalis v2.1 &copy; 2026 &bull; <a href="/privacy.html">Politique de confidentialité</a></p>
-      <p class="footer-sub">Fait avec ❤️ pour la communauté africaine</p>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="landing-logo"><div class="logo-icon">💰</div><span class="logo-text" style="color:var(--text)">Saytu Xalis</span></div>
+          <p>Application de gestion de budget conçue pour la communauté africaine.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Produit</h4>
+          <a href="#features-section">Fonctionnalités</a>
+          <a href="/privacy.html">Confidentialité</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <a href="mailto:simitydanfakha@gmail.com">Email</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Saytu Xalis v2.1 &copy; 2026 &bull; Fait avec ❤️ pour la communauté africaine</p>
+      </div>
     </footer>
   </div>
 
